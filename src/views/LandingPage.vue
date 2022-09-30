@@ -1,18 +1,17 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="banner-box">
+    <Banner/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Banner from '@/components/layout/Banner.vue';
+
 
 export default {
-  name: 'HomeView',
+  name: 'LandingPage',
   components: {
-    HelloWorld
+    Banner
   },
   created() {
     this.getHamburguer();
@@ -30,3 +29,19 @@ export default {
   },
 }
 </script>
+
+<style>
+.banner-box {
+    width: 50%;
+    height: fit-content;
+    padding: 3em;
+}
+
+@media (max-width: 600px) {
+    .banner-box {
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+    }
+}
+</style>

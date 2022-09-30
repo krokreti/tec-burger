@@ -1,32 +1,44 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+    <v-app id="vApp" >
+        <AppbarVue/>
+        <router-view></router-view>
+  </v-app>
 </template>
 
+<script>
+import Vue from 'vue';
+import AppbarVue from './components/layout/Appbar.vue';
+export default Vue.extend({
+  name: 'App',
+
+  data: () => ({
+    //
+  }),
+  components: {
+    AppbarVue,
+  }
+});
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-nav {
-  padding: 30px;
+#vApp {
+    background-image: url('../public/burger.jpg');
+    background-position: 0 -190px;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+@media (max-width: 600px) {
+      #vApp {
+        background-image: url('../public/burger.jpg');
+        background-position: -550px -0px;
+        background-size: cover;
+      }
 }
 </style>
