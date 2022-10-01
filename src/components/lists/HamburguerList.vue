@@ -1,20 +1,34 @@
 <template>
-    <v-container>
-        <div v-for="hamburguer in hamburguerList" :key="hamburguer.id">
-            <HamburguerItem
-            :descricao="hamburguer.description" 
-            :imagem="hamburguer.image"
-            :nome="hamburguer.title"
-            :preco="hamburguer.price"
-            :id="hamburguer.id"
-            />
-        </div>
-    </v-container>
+    <div>
+        <v-container id="desktop-item">
+            <div v-for="hamburguer in hamburguerList" :key="hamburguer.id" >
+                <HamburguerItem
+                :descricao="hamburguer.description" 
+                :imagem="hamburguer.image"
+                :nome="hamburguer.title"
+                :preco="hamburguer.price"
+                :id="hamburguer.id"
+                />
+            </div>
+        </v-container>
+        <v-container id="mobile-item" >
+            <div v-for="hamburguer in hamburguerList" :key="hamburguer.id" >
+                <HamburguerItemMobile
+                :descricao="hamburguer.description" 
+                :imagem="hamburguer.image"
+                :nome="hamburguer.title"
+                :preco="hamburguer.price"
+                :id="hamburguer.id"
+                />
+            </div>
+        </v-container>
+    </div>
 </template>
 
 <script>
 import { getBurgers } from "@/api";
 import HamburguerItem from '../items/HamburguerItem.vue'
+import HamburguerItemMobile from '../items/HamburguerItemMobile.vue'
 
 export default {
     name: 'HamburguerList',
@@ -24,7 +38,8 @@ export default {
         }
     },
     components: {
-        HamburguerItem
+        HamburguerItem,
+        HamburguerItemMobile
     },
     methods: {
         async getBurgers() {
@@ -50,5 +65,18 @@ export default {
 </script>
 
 <style>
+#mobile-item {
+    display: none;
+}
 
+@media (max-width:600px) {
+    #desktop-item {
+        display: none;
+    }
+
+    #mobile-item {
+    display: block;
+    padding: 0 !important;
+}
+}
 </style>

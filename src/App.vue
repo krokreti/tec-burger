@@ -36,6 +36,8 @@ export default Vue.extend({
 
 @media (max-width: 600px) {
       #vApp {
+        width: 100%;
+        max-width: 100vh;
         background-image: url('../public/burger.jpg');
         background-position: -550px -0px;
         background-size: cover;

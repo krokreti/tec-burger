@@ -1,25 +1,23 @@
 <template>
-        <v-container  class="container-hamburguer rounded-xl mb-5" @click="verDetalhes" >
-        <v-row  class="d-flex justify-start" >
-            <v-col cols="12" sm="3" md="3" >
-                <v-row dense class="img-box">
+    <v-container>
+        <div class="grid-border" @click="verDetalhes">
+            <div class="grid-container">
+                <div class="img-box">
                     <img :src="require(`@/assets/hamburguer/${imagem}`)" alt="produto" class="cartao"/>
-                </v-row>
-            </v-col>
-            <v-col cols="12" sm="9" md="9" >
-                <v-row dense class="d-flex justify-space-between px-3 pt-1">
+                </div>
+                <div>
                     <p class="font-weight-bold yellow--text text--darken-3" > {{ nome }} </p>
-                    
-                    
+                </div>
+                <div>
                     <p class="font-weight-bold green--text text--lighten-2">
-                        {{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(preco) }}
+                            {{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(preco) }}
                     </p>
-                </v-row>
-                <v-row dense>
+                </div>
+                <div class="grid-descricao">
                     <p class="font-weight-light"> {{ descricao }} </p>
-                </v-row>
-            </v-col>
-        </v-row>
+                </div>
+            </div>
+        </div>
     </v-container>
 
 </template>
@@ -27,7 +25,7 @@
 <script>
 import router from '@/router'
 export default {
-    name: 'HamburguerItem',
+    name: 'HamburguerItemMobile',
     props: {
         id: null,
         nome: null,
@@ -50,7 +48,27 @@ export default {
 </script>
 
 <style>
-.container-hamburguer{
+.grid-border {
+    color: black;
+    padding:1em;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    
+    align-items: center;
+    gap: 15px;
+}
+
+.grid-descricao{
+    grid-column: 1/4;
+}
+
+/* .container-hamburguer{
     color: black;
     background-color: white;
     width: 50em;
@@ -65,7 +83,7 @@ export default {
     background-color: #677381;
     color: white;
     cursor: pointer;
-}
+} */
 
 .cartao {
     width: 100%;
@@ -76,15 +94,16 @@ export default {
 .img-box{
     width: 7em;
     height: 7em;
+    overflow: hidden;
     margin: 0 auto;
     filter: drop-shadow(0 0 1px #333);
 }
 
-@media (max-width:600px) {
+/* @media (max-width:600px) {
     
     .container-hamburguer {
         width: 100%;
     }
 
-}
+} */
 </style>

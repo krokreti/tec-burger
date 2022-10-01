@@ -1,14 +1,15 @@
 <template>
   <v-container class="menu-box" >
     <div class="menu-box-container">
-        <p class="text-h5 text-center">Burgers</p>
-        <HamburguerList/>
+        <p class="text-h5 mt-5 text-center">Burgers</p>
+        <HamburguerList id="desktop-menu"/>
     </div>
   </v-container>
 </template>
 
 <script>
 import HamburguerList from '@/components/lists/HamburguerList.vue'
+
 
 export default {
     name: 'Menu',
@@ -30,6 +31,7 @@ export default {
     justify-content: center;
 }
 
+
 .menu-box-container {
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid grey;
@@ -49,6 +51,7 @@ export default {
     .menu-box-container {
         width: 100%;
         margin: 0 !important;
+        padding: 0;
     }
 }
 </style>
