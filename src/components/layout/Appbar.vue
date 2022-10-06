@@ -16,7 +16,6 @@
         <v-toolbar-title class="ml-3">Tech Burger</v-toolbar-title>
         </router-link>
       </div>
-
     </div>
     <a target="_blank" title="Fale Conosco!" href="https://api.whatsapp.com/send?phone=21990942617&text=Olá">
     <v-btn color="green" text fab style="margin-right:1.5em;">

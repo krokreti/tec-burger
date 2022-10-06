@@ -13,7 +13,7 @@
                             {{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(preco) }}
                     </p>
                 </div>
-                <div class="grid-descricao">
+                <div class="grid-descricao" v-if="descricao">
                     <p class="font-weight-light"> {{ descricao }} </p>
                 </div>
             </div>
@@ -59,13 +59,14 @@ export default {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto;
-    
+    text-align: center;
     align-items: center;
     gap: 15px;
 }
 
 .grid-descricao{
     grid-column: 1/4;
+    text-align: justify;
 }
 
 /* .container-hamburguer{
