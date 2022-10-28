@@ -51,10 +51,10 @@
     <v-divider dark class="mb-5"></v-divider>
     
     <h5 class="text-h5 mb-5">Pedido:</h5>
-    <v-row class="d-flex justify-space-between yellow--text text--darken-3 font-weight-bold">
-        <v-col cols="12" md="2" sm="7" class="ml-8"> Burger</v-col>
-        <v-col cols="12" md="2" sm="2" class="ml-5"> QTD</v-col>
-        <v-col cols="12" md="2" sm="2" class="mr-8"> Preço
+    <!-- <v-row class="d-flex justify-space-between yellow--text text--darken-3 font-weight-bold">
+        <v-col cols="2" md="2" sm="7" class="ml-8"> Burger</v-col>
+        <v-col cols="2" md="2" sm="2" class="ml-5"> QTD</v-col>
+        <v-col cols="2" md="2" sm="2" class="mr-8"> Preço
         </v-col>
     </v-row>
     <div v-for="item in hamburgueres" :key="item.id" class="imgCinza">
@@ -65,8 +65,34 @@
         <v-col cols="12" md="2" sm="2">
              {{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price * item.quantity) }}
              </v-col>
-        </v-row>
-    </div> 
+        </v-row> -->
+        <v-data-table
+        dense
+        dark
+        :headers="headers"
+        :items="hamburgueres"
+        item-key="title"
+        class="elevation-1"
+        hide-default-footer
+        >
+
+        <template v-slot:body="{items}">
+            <tbody>
+                <tr v-for="hamburguer in items" :key="hamburguer.title">
+                    <td>
+                        <div class="img-box1 mt-3">
+                            <img :src="require(`@/assets/hamburguer/${hamburguer.image}`)" alt="produto" class="cartao1"/>
+                        </div>
+                    </td>
+                    <td>{{ hamburguer.title }}</td>
+                    <td class="text-center">{{ hamburguer.quantity }}</td>
+                    <td>{{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(hamburguer.price * hamburguer.quantity) }}</td>
+                </tr>
+            </tbody>
+        </template>
+
+        </v-data-table>
+    <!-- </div>  -->
 
     <v-divider dark class="mt-5 mb-5" v-if="observacoes!=''"></v-divider>
 
@@ -104,6 +130,27 @@ export default {
         hamburgueres: this.$store.getters.carts,
         usuario: this.$store.getters.user,
         observacoes: this.$store.getters.detalhes,
+        headers: [
+            {
+                text: 'Imagem',
+                align: 'center',
+                value: 'imagem'
+            },
+            {
+                text: 'Burger',
+                value: 'title'
+            },
+            {
+                text: 'Quantidade',
+                align: 'center',
+                value: 'quantity'
+            },
+            {
+                text: 'Preço',
+                align: 'center',
+                value: 'price'
+            }
+        ]
         }
     },
     components: {
@@ -160,4 +207,5 @@ export default {
     -moz-transition: all 0.8s linear;
     transition: all 0.8s linear;
 }
+
 </style>
