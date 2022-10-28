@@ -28,19 +28,19 @@ export default Vue.extend({
 }
 
 #vApp {
-    background-image: url('../public/burger.jpg');
-    background-position: 0 -190px;
-    background-attachment: fixed;
-    background-size: cover;
+  width: 100%;
+  max-width: 100%;
+  background-image: url('../public/burger.jpg');
+  background-position: -550px -0px;
+  background-size: cover;
 }
 
-@media (max-width: 600px) {
-      #vApp {
-        width: 100%;
-        max-width: 100vh;
-        background-image: url('../public/burger.jpg');
-        background-position: -550px -0px;
-        background-size: cover;
-      }
+@media (min-width: 900px) {
+  #vApp {
+      
+      background-position: 0 -190px;
+      background-attachment: fixed;
+      background-size: cover;
+}
 }
 </style>

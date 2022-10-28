@@ -3,8 +3,9 @@
     dark
     height="80%"
     class="bar"
+    style="max-height:5em;"
     >
-    <div class="d-xs-flex justify-xs-center align-center" style="width: 100%;  " >      
+    <div class="d-xs-flex justify-xs-center align-center" style="width: 100%;" >      
       <div class="ml-4 " style="width:100%;">
         <router-link to="/"  id="router-link" class="d-flex align-center">
           <v-app-bar-nav-icon >

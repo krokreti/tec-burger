@@ -1,11 +1,11 @@
 <template>
-    <div id="box" >
-        <div class=" text-left d-flex justify-center d-xs-block " >
+    <div id="box" style="border:1px solid blue;" >
+        <div class=" text-left d-flex justify-center d-xs-block "  >
             <p class=" display-4 text-center d-none d-sm-flex" >O melhor Burger de Guaratiba</p>
             <p class="text-h2 text-center d-flex d-sm-none" >O melhor Burger de Guaratiba</p>
         
         </div>
-        <div class="display-1 font-weight-thin text-center d-none d-sm-flex justify-center" >
+        <div class="display-1 font-weight-thin text-center d-none d-sm-flex justify-center"  style="width:100%">
             Venha Conferir...
         </div>
         <div class="box-button d-flex justify-center pa-3 d-xs-block" >
@@ -32,8 +32,17 @@ export default {
 <style>
 #box {
     color: white;
-    height: fit-content;
-    width: 30em;
+    width: 100%;
+    padding: 0.5em;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.box-button {
+    width: 100%;
+
 }
 
 #router-link {
@@ -41,21 +50,13 @@ export default {
     text-decoration: none;
     color: white;
 }
-@media (max-width:600px) {
+@media (min-width:900px) {
     #box {
         color: white;
-        width: 100%;
-        padding: 0.5em;
-        height: 88vh;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-between;
+        height: fit-content;
+        width: 30em;
     }
 
-    .box-button {
-        width: 100%;
-
-    }
 }
 
 </style>

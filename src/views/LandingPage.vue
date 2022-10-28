@@ -13,20 +13,6 @@ export default {
   components: {
     Banner
   },
-  created() {
-    this.getHamburguer();
-  },
-  methods: {
-    async getHamburguer() {
-      fetch('https://tec-burger-default-rtdb.firebaseio.com/hamburguer.json').then( (response) => {
-        if(response.ok) {
-          return response.json();
-        }
-      }).then((data) => {
-        console.log(data)
-      })
-    }
-  },
 }
 </script>
 
