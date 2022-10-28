@@ -95,7 +95,8 @@
 
 <script>
 import router from '@/router';
-import CartItem from '../carrinho/CartItem.vue';
+import CartItem from '../cart/CartItem.vue';
+
 export default {
     name: 'FormConfirmacao',
     data() {

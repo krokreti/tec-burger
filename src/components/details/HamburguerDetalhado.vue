@@ -83,7 +83,6 @@
        <span class="green--text text--lighten-2" > 
         {{ new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(hamburguer.price) }}
         </span>
-      <!-- <Cart :type="'botao'"/> -->
             <v-btn
               color="warning"
               dark

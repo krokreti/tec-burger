@@ -1,16 +1,17 @@
 <template>
     <v-container >
-        <v-row class="d-flex justify-start align-center"  >
-            <v-col cols="12" sm="2" md="3"  style="height:7em;">
+        <v-row class="d-flex justify-start align-center" >
+            <v-col cols="4" sm="1" md="3"  style="height:7em; ">
                 <v-row dense class="img-box1" >
                     <img :src="require(`@/assets/hamburguer/${imagem}`)" alt="produto" class="cartao1"/>
                 </v-row>
             </v-col>
-            <v-col cols="12" sm="4" md="9" class="pr-5 d-flex align-center" style="height: 7em;">
-                <v-row dense class="d-flex align-center justify-space-between ml-5 pl-2" style="height:1.5em;">
-                    <span class="font-weight-bold yellow--text text--darken-3" > {{ nome }} </span>
-                    <span class="font-weight-bold yellow--text text--darken-3" > 
-                        <v-row>
+            <v-col cols="8" sm="4" md="9" class="pr-5" >
+                <v-row class="mb-2">
+                    <span class="font-weight-bold yellow--text text--darken-3 text-center" style="width:100%" > {{ nome }} </span>
+                </v-row>
+                <v-row dense class=" ml-md-5 pl-md-2 mt-3" >
+                    <span class="font-weight-bold yellow--text text--darken-3 d-flex align-center justify-space-between" style="width:100%"> 
                             <v-btn small text @click="removerCarrinho()" v-if="$route.name!='confirmar-dados'" >
                                 <v-icon color="warning" >
                                     mdi-minus-thick
@@ -22,10 +23,8 @@
                                     mdi-plus-thick
                                 </v-icon>
                             </v-btn>
-                        </v-row>
                     </span>
                 </v-row>
-
             </v-col>
         </v-row>
     </v-container>
