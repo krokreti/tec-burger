@@ -12,4 +12,9 @@ export async function getBurgers() {
     return await response.json();
 }
 
+export async function getDetailedBurger(id) {
+    const response = await fetch(url + `/hamburguer/${id}.json`)
+    return await response.json();
+}
+
 //formConfirmacao

@@ -32,29 +32,13 @@
         </v-row>
         <v-row>
           <v-col>
-        <!-- <v-text-field dark readonly v-model="productQuantity" rounded  style="width:10em;"> -->
           <v-text-field dark readonly v-model="quantidade" rounded  style="width:10em;">
-          <!-- <v-icon  
-          slot="append" 
-          color="warning" 
-          @click="adicionarCarrinho()">
-            mdi-plus
-          </v-icon> -->
             <v-icon  
           slot="append" 
           color="warning" 
           @click="quantidade++">
             mdi-plus
           </v-icon>
-
-          <!-- <v-icon
-            slot="prepend"
-            color="red"
-            :disabled="cartItemNumber==0"
-            @click="removerCarrinho()"
-          >
-            mdi-minus
-          </v-icon> -->
           <v-icon
             slot="prepend"
             color="red"
@@ -117,6 +101,7 @@
 </template>
 
 <script>
+import { getDetailedBurger } from "@/api";
 import Cart from '../cart/Cart.vue';
 import Snackbar from '../layout/Snackbar.vue';
 
@@ -161,9 +146,9 @@ export default {
     },
     methods: {
         async getHamburgerById() {
-          const req = await fetch(`http://localhost:3000/hamburguer/` + this.id);
-          const response = await req.json();
-          this.hamburguer = response;
+          getDetailedBurger(this.id).then(data => {
+            this.hamburguer = data;
+          })
         },
         addToCart() {
           if(this.quantidade == 0 ) {
@@ -194,30 +179,6 @@ export default {
             this.quantidade = burgerObj.quantity
           } 
         },
-        // adicionarCarrinho() {
-        //     const data = {
-        //         id: this.hamburguer.id,
-        //         title: this.hamburguer.title,
-        //         price: this.hamburguer.price,
-        //         image: this.hamburguer.image,
-        //     };
-        //     this.texto = 'O Item foi adicionado com sucesso!';
-        //     this.snackbar = true;
-        //     this.$store.dispatch("addToCart", data);
-        //     this.quantidade = this.$store.getters.cartItemNumber
-        // },
-        // removerCarrinho() {
-        //     const data = {
-        //         id: this.hamburguer.id,
-        //         title: this.hamburguer.title,
-        //         price: this.hamburguer.price,
-        //         image: this.hamburguer.image,
-        //     };
-        //     this.texto = 'O Item foi removido com sucesso!';
-        //     this.snackbar = true;
-        //     this.$store.dispatch("removeFromCart", data);
-        //     this.quantidade = this.$store.getters.cartItemNumber
-        // }
     },
     components: { 
       Snackbar,
@@ -230,11 +191,12 @@ export default {
 a {
     text-decoration: none;
 }
+
 .hamburguer-detalhado-container {
   margin: 1em auto;
   background: rgba(30, 30, 30, 0.9);
   border-radius: 20px;
-  width: 40em;
+  width: 100%;
   color: white;
 }
 .btn-voltar {
@@ -291,4 +253,12 @@ a {
   justify-content: space-evenly;
   align-items: center;
 }
+
+@media (min-width:900px) {
+  .hamburguer-detalhado-container {
+  margin: 1em auto;
+  width: 40em;
+}
+}
+
 </style>
